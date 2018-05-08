@@ -25,28 +25,24 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         String word = intent.getStringExtra(MainActivity.WORD_REQUEST);
-        String bool = intent.getStringExtra(MainActivity.BOOL_REQUEST);
+        boolean bool = intent.getBooleanExtra(MainActivity.BOOL_REQUEST,false);
         String vowel = intent.getStringExtra(MainActivity.VOWEL_REQUEST);
 
 
-
-        if (!bool.equals("true") && !bool.equals("false")) {
-            mMessageViewTextBoolean.setText("What you entered was neither true nor false. Please try again.");
-        }else{
-            if (calcPalindrome(word) != Boolean.parseBoolean(bool)) {
-                if (calcPalindrome(word)) {
-                    mMessageViewTextBoolean.setText("I am sorry, the word you entered was a palindrome");
-                } else {
-                    mMessageViewTextBoolean.setText("I am sorry, the word you entered was not a palindrome");
-                }
+        if (calcPalindrome(word) != bool) {
+            if (calcPalindrome(word)) {
+                mMessageViewTextBoolean.setText("I am sorry, the word you entered was a palindrome");
             } else {
-                if (calcPalindrome(word)) {
-                    mMessageViewTextBoolean.setText("Congratulations! The word you entered was a palindrome");
-                } else {
-                    mMessageViewTextBoolean.setText("Congratulations! The word you entered was not a palindrome");
-                }
+                mMessageViewTextBoolean.setText("I am sorry, the word you entered was not a palindrome");
+            }
+        } else {
+            if (calcPalindrome(word)) {
+                mMessageViewTextBoolean.setText("Congratulations! The word you entered was a palindrome");
+            } else {
+                mMessageViewTextBoolean.setText("Congratulations! The word you entered was not a palindrome");
             }
         }
+
 
         char isVowel = word.charAt(0);
 
@@ -101,7 +97,7 @@ public class SecondActivity extends AppCompatActivity {
         finish();
     }
 
-    public void returnReplyNo(View view){
+    public void returnReplyNo(View view) {
         Intent replyIntent = new Intent();
 
         //send that string to the other activity as an intent??

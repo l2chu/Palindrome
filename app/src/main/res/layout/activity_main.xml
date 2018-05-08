@@ -33,40 +33,55 @@
         android:inputType="textPersonName"
         android:hint="ex: hello, racecar, mom, etc."
         android:layout_margin="5dp"/>
-
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please enter if this word is a palindrome (true or false)"
+        android:text="Is this word a palindrome?"
         android:layout_margin="5dp"
         android:textSize="20dp"/>
-
-    <EditText
-        android:id="@+id/edit_text_boolean"
-        android:layout_width="match_parent"
+    <RadioGroup
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="true or false"
-        android:layout_margin="5dp"/>
+        android:id="@+id/myBoolRadioGroup"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/radio_true"
+            android:text="True"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="False"
+            android:id="@+id/radio_false"/>
+    </RadioGroup>
+
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please enter if this word starts with a vowel (yes or no)"
+        android:text="Does this word start with a vowel?"
         android:layout_margin="5dp"
         android:textSize="20dp"/>
 
-    <EditText
-        android:id="@+id/edit_text_vowel"
-        android:layout_width="match_parent"
+    <RadioGroup
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="yes or no"
-        android:layout_margin="5dp"/>
+        android:id="@+id/myVowelRadioGroup"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="yes"
+            android:id="@+id/radio_yes"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="no"
+            android:id="@+id/radio_no"/>
+    </RadioGroup>
 
     <Button
         android:id="@+id/button"
@@ -75,4 +90,5 @@
         android:text="Submit"
         android:layout_margin="5dp"
         android:onClick="launchSecondActivity"/>
+
 </LinearLayout>
